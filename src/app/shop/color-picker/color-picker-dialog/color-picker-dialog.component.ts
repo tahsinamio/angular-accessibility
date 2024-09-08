@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
 
 export interface ColorDialogData {
   color: string;
@@ -45,7 +45,9 @@ export class ColorPickerDialogComponent implements OnInit {
   ];
 
   // TODO: #11. Announce changes with LiveAnnouncer
-  constructor(public dialogRef: MatDialogRef<ColorPickerDialogComponent>,
+  constructor(
+    public dialogRef: MatDialogRef<ColorPickerDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: ColorDialogData,
     private liveAnnouncer: LiveAnnouncer) { }
 
   ngOnInit(): void { }

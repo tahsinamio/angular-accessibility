@@ -20,10 +20,13 @@ limitations under the License.
   <div class="dumpling-customizations">
     <mat-card class="fillings selection-card">
       <mat-card-title>Fillings</mat-card-title>
-      <mat-card-content>  
+      <mat-card-content>
         <!-- TODO: #7. Create selectable controls with Angular Material -->
-        <mat-selection-list [(ngModel)]="selectedFillings" aria-label="Dumpling fillings">
-          <mat-list-option *ngFor="let flavor of fillings" [value]="flavor" color="primary">
+        <mat-selection-list [(ngModel)]="selectedFillings"
+          aria-label="Dumpling fillings">
+          <mat-list-option *ngFor="let flavor of fillings"
+            [value]="flavor"
+            color="primary">
             {{ flavor }}
           </mat-list-option>
         </mat-selection-list>
@@ -35,15 +38,15 @@ limitations under the License.
         <!-- TODO: #8. Provide control labels with ARIA -->
         <mat-slider
           aria-label="Dumpling order quantity slider"
-          id="quantity"
-          name="quantity"
+          id="quantity-slider"
+          name="quantity-slider"
           color="primary"
           class="quantity-slider"
           [max]="13"
           [min]="1"
           [step]="1"
+          [thumbLabel]="true"
           [tickInterval]="1"
-          thumbLabel
           [(ngModel)]="quantity">
         </mat-slider>
       </mat-card-content>
@@ -56,8 +59,8 @@ limitations under the License.
     </mat-card>
   </div>
   <!-- TODO: #6. Use Semantic HTML (& Angular Material!) -->
-  <button mat-flat-button 
-    color="primary" 
+  <button mat-flat-button
+    color="primary"
     class="purchase-button"
     (click)="fauxPurchase()">
     Purchase

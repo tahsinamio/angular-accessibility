@@ -16,6 +16,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { A11yModule } from '@angular/cdk/a11y';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +40,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ShopComponent } from './shop/shop.component';
 
 // TODO: #9. Add the power of @angular/cdk/a11y
-import { A11yModule } from '@angular/cdk/a11y';
 
 @NgModule({
   declarations: [

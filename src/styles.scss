@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 @use '@angular/material' as mat;
+@use '@angular/cdk';
 
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@1,700&Lato:wght@400;700;900&display=swap');
 $vollkorn-font-family: 'Vollkorn', serif;
@@ -69,12 +70,12 @@ $dark-theme: mat.define-dark-theme((
 }
 
 /* Global styles */
-html, body { 
-  height: 100%; 
+html, body {
+  height: 100%;
 }
 
-body { 
-  margin: 0; 
+body {
+  margin: 0;
   -webkit-appearance: none;
   background-color: mat.get-color-from-palette($light-accent, default);
   color: mat.get-contrast-color-from-palette($light-accent, default);
@@ -84,3 +85,35 @@ body {
   background-color: mat.get-color-from-palette($dark-accent, default);
   color: mat.get-contrast-color-from-palette($dark-accent, default);
 }
+
+// Add high contrast mode support
+@include cdk.high-contrast {
+  a {
+    text-decoration: underline;
+  }
+
+  button,
+  .mat-button-base {
+    outline: solid 1px;
+    border: none;
+  }
+}
+
+// Add high contrast styles for light theme
+.mat-button-base {
+  @include cdk.high-contrast {
+    background-color: mat.get-color-from-palette($light-primary, 50);
+    color: mat.get-contrast-color-from-palette($light-primary, 50);
+  }
+}
+
+// Add high contrast styles for dark theme
+.dark-theme {
+  .mat-button-base {
+    @include cdk.high-contrast {
+      background-color: mat.get-color-from-palette($dark-primary, 50);
+      color: mat.get-contrast-color-from-palette($dark-primary, 50);
+    }
+  }
+}
+
